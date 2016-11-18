@@ -1,12 +1,15 @@
 language: node_js
+
 node_js:
 - 6.9.1
+
 before_deploy:
 - zip -r latest *
 - mkdir -p .deploy
 - mv latest.zip .deploy/latest.zip
+
 deploy:
-- provider: elasticbeanstalk
+  provider: elasticbeanstalk
   access_key_id:
     secure: ueUtrv/Ndki5AsBdkDt7EhjJdES5Ij1R8/XXpJXbRPTb/C9mnlSFtODMe8QMYmyx7LLgRNjXfzKRx+yIXiMkHs8cLk7n76HAGkraXXWN3eLkxhPHDr2JQHAdRB0HP8fM1tQG2Pbr4xRUmcdbLq48uRuljYBTXZ0nOfd7eat09fOGKwzXjGpFkQ+BG+qhKgFCHQTexQLMBrxJdJJ0dWawB5WI2MSMmHdepCJyWPG1PTgTJy4lVu7EEw9VmEZGy2ZBl3GW2FTRWyaBSB6gKfqgTiaL7GAOjDut1BOjdzjBQz7nxfIHj7XdAzhuOstwm/lbTpG5RCiCih+gZELjBR9M8IWAg9vZXYaujbeZkhlH8t2QADWEYFS+s+lEQgaZOKtlK/Ovy97jbmttbnW1on7QciqBmKAabXYt7asawZfE94uAI/gZ5iqZl3PTLTStjqn7lwVtyEReugQhXOwk8g59lXYLqgbhn1WbZf+oqe+3ySJ5DgOYSYqgtlkXDIMnx9ZjxYopxP5rprL8pmcAXWrqOZnYrB77idzbKiyJWcav/dfjxj8oeg5edjHRclEXb8fn/ZHIjaglZjcxKxC3RJWHFDdE6fqWvqZl12mf/yTsTpWQUC7nQME3CBj/znuxbwQRpXS83pezvxv8dAzvtSoo4H8g5CPD53FmCUz2it+XaK4=
   secret_access_key:
@@ -15,6 +18,9 @@ deploy:
   env: ooe-env-staging
   zip_file: .deploy/latest.zip
   bucket_name: ooe
+
 notifications:
   slack:
+    on_success: change
+    on_failure: change
     secure: 4SlBJ6orRHmvegWls56VHznJSGnSm2eQNGH1Mq7knuCMFksnopaxK6NHNaxZvFPyDV35juK0PyB2kZVJHgltMzGSdyL9cUXQw4xc2SbUXXk+1XTggegXyrFHg3IwXbR3cxSqLi32BvH1EVPGXbZG6PQWEFnnrj3b3mVpoSrNTGSI/uitbsHwqZgBnztBMITsA0gKVVx1cCHLi4fPY/W1zDXdybicVp2/Cj18yqM6/9cje9wwRdj6fwHAC0r4cg9OEN28ouFzubH+sz0EiQmotd6McNL2PWNihxPpIsVO9lCwWO/n7tCCatcnhuCilgKefvza8cDC5+1G8wRQUPYYWoIgEA9JfUeOBaxzAOG/IVt0Nzi7eN/ww2ibArUpYsE2X+Mfyj0R4U+leF8U1S61YRD3Edj55Hy6CYM8LxT7t0Xjsmwo4ZNys1HD2TgA4EPuTWmn6lKM0IWnZHERLBGHSrpYR5YRVt3d4NcJArVOESyfktBrXjKnkefSWusCvVFiG2rwL0QWU0UpEjQaJMRrRN2aLokPLwYGk34B+MiEkIGbJU3cLoef3xMNwQ/RCDT0fbqCj0xjEdoo+mOuOFhbSQPsLKXrLlZno+r7/UfNtNZSLAKDm1KF0uugdRj54reIBPSRZVle/TUmIbk+gooYphsbglLDT10TSEyFTSHh1MU=
