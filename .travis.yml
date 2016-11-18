@@ -19,6 +19,7 @@ deploy:
   zip_file: .deploy/latest.zip
   bucket_name: ooe
   skip_cleanup: true
+  region: us-east-2
 
 notifications:
   slack:
