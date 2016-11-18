@@ -20,7 +20,7 @@ deploy:
   skip_cleanup: true
   zip_file: .deploy/latest.zip
   bucket_name: elasticbeanstalk-us-west-2-169608202767
-  region: us-east-2
+  region: us-west-2
 
 notifications:
   slack:
