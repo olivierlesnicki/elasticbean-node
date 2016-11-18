@@ -18,6 +18,7 @@ deploy:
   env: ooe-env-staging
   zip_file: .deploy/latest.zip
   bucket_name: ooe
+  skip_cleanup: true
 
 notifications:
   slack:
