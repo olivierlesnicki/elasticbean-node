@@ -4,7 +4,7 @@ node_js:
 - 6.9.1
 
 before_deploy:
-- zip -r latest *
+- zip -r latest * .ebextensions/*
 - mkdir -p .deploy
 - mv latest.zip .deploy/latest.zip
 
